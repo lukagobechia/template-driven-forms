@@ -5,10 +5,25 @@
 
       <form class="form" (ngSubmit)="onFormSubmit()" #registrationForm="ngForm">
         <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input type="text" name="firstName" [(ngModel)]="firstName" #firstNameVal="ngModel" required>
+          <small *ngIf="firstNameVal.invalid && firstNameVal.touched">*FirstName is required</small>
+          <small class="black" *ngIf="firstName">You Entered: {{firstName}}</small>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input type="text" name="lastName" [(ngModel)]="lastName" #lastNameVal="ngModel" required>
+          <small *ngIf="lastNameVal.invalid && lastNameVal.touched">*Last Name is required</small>
+          <small class="black" *ngIf="lastName">You Entered: {{lastName}}</small>
+        </div>
+        
+        <div class="form-group">
           <label for="username">Username:</label>
           <input type="text" name="username" [(ngModel)]="username" #usernameVal="ngModel" required>
           <small *ngIf="usernameVal.invalid && usernameVal.touched">*Username is required</small>
           <small class="black" *ngIf="username">You Entered: {{username}}</small>
+          <button class="submit" (click)="generateUsername()">Generate Username</button>
         </div>
 
         <div class="form-group">
@@ -45,15 +60,8 @@
             <input type="text" name="street1" placeholder="Street 1" ngModel required>
           </div>
 
-          <div class="form-group">
-            <input type="text" name="street2" placeholder="Street 2" ngModel>
-          </div>
           <div class="form-group ">
             <input type="text" name="country" placeholder="Country" ngModel required>
-          </div>
-
-          <div class="form-group">
-            <input type="city" name="city" placeholder="City/Town" ngModel required>
           </div>
 
           <div class="form-group">
