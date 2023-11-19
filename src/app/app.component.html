@@ -1,37 +1,70 @@
-<main >
-  <div class="div" >
-    <div class="registration-form"  [ngClass]="{'shadow': registrationForm.touched}">
+<main>
+  <div class="div">
+    <div class="registration-form" [ngClass]="{'shadow': registrationForm.touched}">
       <h2>Registration Form</h2>
 
       <form class="form" (ngSubmit)="onFormSubmit()" #registrationForm="ngForm">
         <div class="form-group">
           <label for="username">Username:</label>
-          <input type="text" name="username" [(ngModel)]="username" #usernameVal = "ngModel" required>
+          <input type="text" name="username" [(ngModel)]="username" #usernameVal="ngModel" required>
           <small *ngIf="usernameVal.invalid && usernameVal.touched">*Username is required</small>
           <small class="black" *ngIf="username">You Entered: {{username}}</small>
         </div>
 
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" name="email" [(ngModel)]="email" #emailVal = "ngModel" required email>
-          <small *ngIf="emailVal.invalid && emailVal.touched">*Email is Invalide</small>
-          <small class="black" *ngIf="email">You Entered: {{email}}</small>
+          <input type="email" name="email" [(ngModel)]="email" #emailVal="ngModel" required email>
+          <div style="display: flex; flex-direction: column;"> 
+            <small *ngIf="emailVal.invalid && emailVal.touched">*Email is Invalide</small>
+            <small class="black" *ngIf="email">You Entered: {{email}}</small>
+          </div>
 
-        </div>
-        <label for="gender">Gender: </label>
-        <div class="" *ngFor="let gen of Genders">
-          <input type="radio"  [value]="gen.display" name="gender" ngModel>
-          <label for="gender">{{gen.display}}</label>
+
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" name="password" [(ngModel)]="password" #passwordVal = "ngModel" required>
+          <input type="password" name="password" [(ngModel)]="password" #passwordVal="ngModel" required>
           <small *ngIf="passwordVal.invalid && passwordVal.touched">*Password is Invalide</small>
           <small class="black" *ngIf="password">You Entered: {{password}}</small>
         </div>
 
+        <div class="gender">
+          <label for="gender" style="padding-bottom: 5px;">Gender: </label>
+          <div class="" *ngFor="let gen of Genders">
+            <div class="center">
+              <input type="radio" [value]="gen.display" name="gender" ngModel>
+              <label for="gender">{{gen.display}}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" ngModelGroup="address" #addresVal="ngModelGroup">
+
+
+          <div class="form-group">
+            <input type="text" name="street1" placeholder="Street 1" ngModel required>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="street2" placeholder="Street 2" ngModel>
+          </div>
+          <div class="form-group ">
+            <input type="text" name="country" placeholder="Country" ngModel required>
+          </div>
+
+          <div class="form-group">
+            <input type="city" name="city" placeholder="City/Town" ngModel required>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="postalCode" placeholder="postal Code" ngModel required>
+          </div>
+          <small *ngIf="addresVal.invalid && addresVal.touched">*The required field/fields missng</small>
+        </div>
+
+
         <div class="form-group">
-          <input type="submit" class="submit" [disabled] = "registrationForm.invalid">
+          <input type="submit" class="submit" [disabled]="registrationForm.invalid">
         </div>
       </form>
 

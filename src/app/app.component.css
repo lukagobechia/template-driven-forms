@@ -2,7 +2,7 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 40px 55px 40px 40px;
   width: 300px;
 }
 
@@ -69,4 +69,21 @@ small{
 
 small.black{
   color: black;
+}
+.center{
+  display: flex;
+  align-items: center;
+  gap: -50px;
+}
+.gender{
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 20px 0;
+}
+select{
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  /* border: 1px solid #ccc; */
+  border-radius: 4px;
 }
