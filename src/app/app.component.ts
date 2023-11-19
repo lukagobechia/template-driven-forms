@@ -15,4 +15,10 @@ export class AppComponent {
     console.log(this.form.value.email);
     console.log(this.form.value.password);
   }
+
+  Genders = [
+    {gender: "Male", display: "Male"},
+    {gender: "Femalee", display: "Female"},
+    {gender: "other", display: "Prefer not to say"}
+  ];
 }

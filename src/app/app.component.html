@@ -13,6 +13,11 @@
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" ngModel>
         </div>
+        <label for="gender">Gender: </label>
+        <div class="" *ngFor="let gen of Genders">
+          <input type="radio"  [value]="gen.display" name="gender" ngModel>
+          <label for="gender">{{gen.display}}</label>
+        </div>
         <div class="form-group">
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" ngModel>
