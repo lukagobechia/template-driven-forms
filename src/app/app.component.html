@@ -23,7 +23,8 @@
           <input type="text" name="username" [(ngModel)]="username" #usernameVal="ngModel" required>
           <small *ngIf="usernameVal.invalid && usernameVal.touched">*Username is required</small>
           <small class="black" *ngIf="username">You Entered: {{username}}</small>
-          <button class="submit" (click)="generateUsername()">Generate Username</button>
+          <button type="button" class="submit" (click)="generateUsername()" 
+          [disabled]="lastNameVal.invalid || firstNameVal.invalid">Generate Username</button>
         </div>
 
         <div class="form-group">
@@ -47,7 +48,7 @@
           <label for="gender" style="padding-bottom: 5px;">Gender: </label>
           <div class="" *ngFor="let gen of Genders">
             <div class="center">
-              <input type="radio" [value]="gen.display" name="gender" ngModel>
+              <input type="radio" [value]="gen.display" name="gender" [ngModel]="defaultGender">
               <label for="gender">{{gen.display}}</label>
             </div>
           </div>
