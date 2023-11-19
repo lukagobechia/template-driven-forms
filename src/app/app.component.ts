@@ -43,21 +43,25 @@ export class AppComponent {
 
     console.log(genUsername);
 
-    this.form.setValue(
-      {
-        firstName: this.form.value.firstName,
-        lastName: this.form.value.lastName,
-        address: {
-          country: this.form.value.address.country,
-          postalCode: this.form.value.address.postalCode,
-          street1: this.form.value.address.street1
-        },
-        email: this.form.value.email,
-        gender: this.form.value.gender,
-        password: this.form.value.password,
+    // this.form.setValue(
+    //   {
+    //     firstName: this.form.value.firstName,
+    //     lastName: this.form.value.lastName,
+    //     address: {
+    //       country: this.form.value.address.country,
+    //       postalCode: this.form.value.address.postalCode,
+    //       street1: this.form.value.address.street1
+    //     },
+    //     email: this.form.value.email,
+    //     gender: this.form.value.gender,
+    //     password: this.form.value.password,
+    //     username: genUsername
+    //   }
+    // );
+
+    this.form.form.patchValue({
         username: genUsername
-      }
-    );
+    });
   }
 
 
