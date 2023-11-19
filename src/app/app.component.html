@@ -1,27 +1,28 @@
-<div [ngClass]="{'div': registrationForm.touched}">
-<div class="registration-form">
-  <h2>Registration Form</h2>
+<main >
+  <div class="div" >
+    <div class="registration-form"  [ngClass]="{'shadow': registrationForm.touched}">
+      <h2>Registration Form</h2>
 
-  <form class="form" (ngSubmit)="onFormSubmit()" #registrationForm = "ngForm">
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" name="username" ngModel>
+      <form class="form" (ngSubmit)="onFormSubmit()" #registrationForm="ngForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" ngModel>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" ngModel>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="submit">
+        </div>
+      </form>
+
     </div>
-
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" nmae="email" ngModel>
-    </div>
-
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" name="password" ngModel>
-    </div>
-
-    <div class="form-group">
-      <input type="submit" class="submit">
-    </div>
-  </form>
-
-</div>
-</div>
+  </div>
+</main>
