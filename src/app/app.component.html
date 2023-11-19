@@ -6,12 +6,17 @@
       <form class="form" (ngSubmit)="onFormSubmit()" #registrationForm="ngForm">
         <div class="form-group">
           <label for="username">Username:</label>
-          <input type="text" id="username" name="username" ngModel>
+          <input type="text" name="username" [(ngModel)]="username" #usernameVal = "ngModel" required>
+          <small *ngIf="usernameVal.invalid && usernameVal.touched">*Username is required</small>
+          <small class="black" *ngIf="username">You Entered: {{username}}</small>
         </div>
 
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" ngModel>
+          <input type="email" name="email" [(ngModel)]="email" #emailVal = "ngModel" required email>
+          <small *ngIf="emailVal.invalid && emailVal.touched">*Email is Invalide</small>
+          <small class="black" *ngIf="email">You Entered: {{email}}</small>
+
         </div>
         <label for="gender">Gender: </label>
         <div class="" *ngFor="let gen of Genders">
@@ -20,11 +25,13 @@
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" id="password" name="password" ngModel>
+          <input type="password" name="password" [(ngModel)]="password" #passwordVal = "ngModel" required>
+          <small *ngIf="passwordVal.invalid && passwordVal.touched">*Password is Invalide</small>
+          <small class="black" *ngIf="password">You Entered: {{password}}</small>
         </div>
 
         <div class="form-group">
-          <input type="submit" class="submit">
+          <input type="submit" class="submit" [disabled] = "registrationForm.invalid">
         </div>
       </form>
 

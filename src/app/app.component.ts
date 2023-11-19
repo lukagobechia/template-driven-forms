@@ -8,6 +8,10 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
 
+  username = '';
+  email = '';
+  password = '';
+  
   @ViewChild('registrationForm') form: NgForm;
   onFormSubmit(){
     console.log(this.form);
