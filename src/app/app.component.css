@@ -1,13 +1,7 @@
 main {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
   }
+
 
   .registration-form {
     background-color: #fff;
@@ -54,4 +48,15 @@ main {
 
   .submit button:hover {
     background-color: #45a049;
+  }
+
+  .div{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
