@@ -8,9 +8,9 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
 
-  username = '';
-  email = '';
-  password = '';
+  userName = '';
+  Email = '';
+  Password = '';
   firstName = '';
   lastName = '';
 
@@ -27,10 +27,9 @@ export class AppComponent {
 
   onFormSubmit() {
     console.log(this.form);
-    console.log(this.form.controls['username'].value);
-    console.log(this.form.value.email);
-    console.log(this.form.value.password);
-
+    this.userName = this.form.value.username;
+    this.firstName = this.form.value.firstname;
+    this.lastName = this.form.value.lastname;
     this.form.reset();
 
     this.form.form.patchValue({
@@ -38,25 +37,29 @@ export class AppComponent {
     })
   }
 
-
+fn = '';
+ln = '';
   generateUsername() {
+    this.fn = this.form.value.firstname;
+    this.ln = this.form.value.lastname;
+
     let genUsername = '';
 
-    if (this.firstName.length >= 3)
-      genUsername += this.firstName.slice(0, 3);
-    else genUsername += this.firstName;
+    if (this.fn.length >= 3)
+      genUsername += this.fn.slice(0, 3);
+    else genUsername += this.fn;
 
 
-    if (this.lastName.length >= 3)
-      genUsername += this.lastName.slice(0, 3);
-    else genUsername += this.lastName;
+    if (this.ln.length >= 3)
+      genUsername += this.ln.slice(0, 3);
+    else genUsername += this.ln;
 
     console.log(genUsername);
 
     // this.form.setValue(
     //   {
-    //     firstName: this.form.value.firstName,
-    //     lastName: this.form.value.lastName,
+    //     firstname: this.form.value.firstname,
+    //     lastname: this.form.value.lastname,
     //     address: {
     //       country: this.form.value.address.country,
     //       postalCode: this.form.value.address.postalCode,

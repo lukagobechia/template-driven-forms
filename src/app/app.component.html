@@ -5,43 +5,43 @@
 
       <form class="form" (ngSubmit)="onFormSubmit()" #registrationForm="ngForm">
         <div class="form-group">
-          <label for="firstName">First Name:</label>
-          <input type="text" name="firstName" [(ngModel)]="firstName" #firstNameVal="ngModel" required>
+          <label for="firstname">First Name:</label>
+          <input type="text" name="firstname" ngModel #firstNameVal="ngModel" required>
           <small *ngIf="firstNameVal.invalid && firstNameVal.touched">*FirstName is required</small>
           <small class="black" *ngIf="firstName">You Entered: {{firstName}}</small>
         </div>
 
         <div class="form-group">
           <label for="lastName">Last Name:</label>
-          <input type="text" name="lastName" [(ngModel)]="lastName" #lastNameVal="ngModel" required>
+          <input type="text" name="lastname" ngModel #lastNameVal="ngModel" required>
           <small *ngIf="lastNameVal.invalid && lastNameVal.touched">*Last Name is required</small>
           <small class="black" *ngIf="lastName">You Entered: {{lastName}}</small>
         </div>
         
         <div class="form-group">
           <label for="username">Username:</label>
-          <input type="text" name="username" [(ngModel)]="username" #usernameVal="ngModel" required>
+          <input type="text" name="username" ngModel #usernameVal="ngModel" required>
           <small *ngIf="usernameVal.invalid && usernameVal.touched">*Username is required</small>
-          <small class="black" *ngIf="username">You Entered: {{username}}</small>
+          <small class="black" *ngIf="userName">You Entered: {{userName}}</small>
           <button type="button" class="submit" (click)="generateUsername()" 
           [disabled]="lastNameVal.invalid || firstNameVal.invalid">Generate Username</button>
         </div>
 
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" name="email" [(ngModel)]="email" #emailVal="ngModel" required email>
+          <input type="email" name="email" ngModel #emailVal="ngModel" required email>
           <div style="display: flex; flex-direction: column;"> 
             <small *ngIf="emailVal.invalid && emailVal.touched">*Email is Invalide</small>
-            <small class="black" *ngIf="email">You Entered: {{email}}</small>
+            <small class="black" *ngIf="Email">You Entered: {{Email}}</small>
           </div>
 
 
         </div>
         <div class="form-group">
           <label for="password">Password:</label>
-          <input type="password" name="password" [(ngModel)]="password" #passwordVal="ngModel" required>
+          <input type="password" name="password" ngModel #passwordVal="ngModel" required>
           <small *ngIf="passwordVal.invalid && passwordVal.touched">*Password is Invalide</small>
-          <small class="black" *ngIf="password">You Entered: {{password}}</small>
+          <small class="black" *ngIf="Password">You Entered: {{Password}}</small>
         </div>
 
         <div class="gender">
@@ -55,7 +55,6 @@
         </div>
 
         <div class="form-group" ngModelGroup="address" #addresVal="ngModelGroup">
-
 
           <div class="form-group">
             <input type="text" name="street1" placeholder="Street 1" ngModel required>
@@ -79,4 +78,7 @@
 
     </div>
   </div>
+  <p>Username: {{' ' +userName}}</p>
+  <p>FIrst Name: {{' ' +lastName}}</p>
+  <p>Last Name: {{' ' +firstName}}</p>
 </main>
