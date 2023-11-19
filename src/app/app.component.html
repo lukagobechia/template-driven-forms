@@ -17,20 +17,20 @@
           <small *ngIf="lastNameVal.invalid && lastNameVal.touched">*Last Name is required</small>
           <small class="black" *ngIf="lastName">You Entered: {{lastName}}</small>
         </div>
-        
+
         <div class="form-group">
           <label for="username">Username:</label>
           <input type="text" name="username" ngModel #usernameVal="ngModel" required>
           <small *ngIf="usernameVal.invalid && usernameVal.touched">*Username is required</small>
           <small class="black" *ngIf="userName">You Entered: {{userName}}</small>
-          <button type="button" class="submit" (click)="generateUsername()" 
-          [disabled]="lastNameVal.invalid || firstNameVal.invalid">Generate Username</button>
+          <button type="button" class="submit" (click)="generateUsername()"
+            [disabled]="lastNameVal.invalid || firstNameVal.invalid">Generate Username</button>
         </div>
 
         <div class="form-group">
           <label for="email">Email:</label>
           <input type="email" name="email" ngModel #emailVal="ngModel" required email>
-          <div style="display: flex; flex-direction: column;"> 
+          <div style="display: flex; flex-direction: column;">
             <small *ngIf="emailVal.invalid && emailVal.touched">*Email is Invalide</small>
             <small class="black" *ngIf="Email">You Entered: {{Email}}</small>
           </div>
@@ -69,14 +69,20 @@
           </div>
           <small *ngIf="addresVal.invalid && addresVal.touched">*The required field/fields missng</small>
         </div>
+        <div class="form-group">
+          <div style="display: flex; align-items: center;">
+            <input type="checkbox" name="agreement" style="width: 15px;" [ngModel]="isAgreed" #agree = "ngModel">
+            <label for="agreement" style="margin-bottom: 1px;">Agree to terms & conditions</label>
+          </div>
+        </div>
 
 
         <div class="form-group">
-          <input type="submit" class="submit" [disabled]="registrationForm.invalid">
+          <input type="submit" class="submit" [disabled]="registrationForm.invalid || !agree.value">
         </div>
       </form>
 
-    </div>
+    </div> 
   </div>
   <p>Username: {{' ' +userName}}</p>
   <p>FIrst Name: {{' ' +lastName}}</p>

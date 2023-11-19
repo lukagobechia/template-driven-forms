@@ -13,7 +13,7 @@ export class AppComponent {
   Password = '';
   firstName = '';
   lastName = '';
-
+  isAgreed:boolean = false;
 
   @ViewChild('registrationForm') form: NgForm;
 
@@ -30,7 +30,8 @@ export class AppComponent {
     this.userName = this.form.value.username;
     this.firstName = this.form.value.firstname;
     this.lastName = this.form.value.lastname;
-    this.form.reset();
+    this.isAgreed = this.form.value.agreement;
+    // this.form.reset();
 
     this.form.form.patchValue({
      gender: 'Male'
